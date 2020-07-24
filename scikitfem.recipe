@@ -1,0 +1,11 @@
+Bootstrap: docker
+From: bhaveshshrimali/skfem_jax:latest
+
+%post
+    apt-get -y update
+    apt-get -y install software-properties-common ffmpeg curl wget build-essential python3 python3-pip python3-tk
+    python3 -m pip install --force-reinstall numpy scipy matplotlib pandas ffmpeg-python openpyxl cython scikit-fem numba
+    ldconfig
+
+%runscript
+    exec /bin/bash -i
